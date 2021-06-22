@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function request(){
+    fetch("https://jsonplaceholder.typicode.com/todos")
+
+    .then(function(response){
+     return response.json()
+    })
+
+    .then((response) => {
+        var result = document.getElementById('result');
+        console.log(response)
+        response.forEach(element => 
+        result.innerHTML = `User ID: ` + response.userId + " Id: " + response.id + " Title: " + response.title + " Completed: " + response.completed + "<br> <br>" ;
+    })
+}
+
+    </script>
+</head>
+<body>
+    <div id= "result">
+    </div>
+    <button onclick="request()" class="btn btn-primary" id="reset">Fake API Data</button> 
+</body>
+</html>
